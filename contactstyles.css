@@ -1,0 +1,575 @@
+/* Root Variables */
+:root {
+    /* Colors */
+    --primary-color: rgba(18, 18, 18, 0.95);    /* Dark grey background */
+    --green: rgb(0, 150, 0);                    /* Green accent */
+    --green-h: rgb(0, 175, 0);                  /* Green hover */
+    --maintext: White;                          /* White text */
+    --text-muted: rgb(170, 170, 170);           /* Light grey for less emphasis */
+    --background-color: rgba(50, 50, 50, 1.0);  /* Black background */
+    --header-bg-color: var(--primary-color);      /* Reusing primary color */
+    --footer-bg-color: var(--primary-color);
+
+    /* Fonts */
+
+    /* Define specific font families for different elements in your Root Variables to eliminate redundancy: */
+    /* --header-font: "ethnocentric", sans-serif;
+    --body-font: "Arial", sans-serif; */
+
+    --font-family: 'Arial', sans-serif;
+    --font-size-large: 1.5rem;
+    --font-size-medium: 1.25rem;
+    --font-size-small: 1rem;
+
+    --font-family: 'Copperplate', 'Arial', sans-serif; /* Copperplate with fallbacks */
+    --font-size-large: 1.5rem;
+    --font-size-medium: 1.25rem;
+    --font-size-small: 1rem;
+
+                /* Aviano Future Regular */
+                --font-family: "aviano-future", sans-serif;
+                --font-weight: 400;
+                --font-style: normal;
+                /* Aviano Future Regular Fast */
+                --font-family: "aviano-future", sans-serif;
+                --font-weight: 400;
+                --font-style: italic;
+                /* Aviano Future Bold */
+                --font-family: "aviano-future", sans-serif;
+                --font-weight: 700;
+                --font-style: normal;
+                /* Aviano Future Bold Fast */
+                --font-family: "aviano-future", sans-serif;
+                --font-weight: 700;
+                --font-style: normal;
+                /* Aviano Future Black */
+                --font-family: "aviano-future", sans-serif;
+                --font-weight: 800;
+                --font-style: normal;
+                /* Aviano Future Black Fast */
+                --font-family: "aviano-future", sans-serif;
+                --font-weight: 800;
+                --font-style: normal;
+                /* Aviano Future Heavy */
+                --font-family: "aviano-future", sans-serif;
+                --font-weight: 900;
+                --font-style: normal;
+                /* Aviano Future Heavy Fast */
+                --font-family: "aviano-future", sans-serif;
+                --font-weight: 900;
+                --font-style: normal;
+
+        /* Ethnocentric UltraLight */
+        --font-family: "ethnocentric", sans-serif;
+        --font-weight: 100;
+        --font-style: normal;
+        /* Ethnocentric UltraLight Italic */
+        --font-family: "ethnocentric", sans-serif;
+        --font-weight: 100;
+        --font-style: italic;
+        /* Ethnocentric ExtraLight */
+        --font-family: "ethnocentric", sans-serif;
+        --font-weight: 200;
+        --font-style: normal;
+        /* Ethnocentric ExtraLight Italic */
+        --font-family: "ethnocentric", sans-serif;
+        --font-weight: 200;
+        --font-style: italic;
+        /* Ethnocentric Light */
+        --font-family: "ethnocentric", sans-serif;
+        --font-weight: 300;
+        --font-style: normal;
+        /* Ethnocentric Light Italic */
+        --font-family: "ethnocentric", sans-serif;
+        --font-weight: 300;
+        --font-style: italic;
+        /* Ethnocentric Regular */
+        --font-family: "ethnocentric", sans-serif;
+        --font-weight: 400;
+        --font-style: normal;
+        /* Ethnocentric Italic */
+        --font-family: "ethnocentric", sans-serif;
+        --font-weight: 400;
+        --font-style: italic;
+        /* Ethnocentric Bold */
+        --font-family: "ethnocentric", sans-serif;
+        --font-weight: 700;
+        --font-style: normal;
+        /* Ethnocentric Bold Italic */
+        --font-family: "ethnocentric", sans-serif;
+        --font-weight: 700;
+        --font-style: italic;            
+
+    /* Spacing */
+    --padding-small: 0.625rem;
+    --padding-medium: 1.25rem;
+    --padding-large: 2.5rem;
+
+    /* Border Radius */
+    --border-radius: 15px;
+}
+
+/* 
+REM Value	    Pixel (px) Equivalent
+0.25rem	        4px
+0.5rem	        8px
+0.625rem        10px
+0.75rem	        12px
+1rem	        16px
+1.25rem	        20px
+1.5rem	        24px
+1.75rem	        28px
+2rem	        32px
+2.5rem	        40px
+3rem	        48px
+3.5rem	        56px
+4rem	        64px
+5rem	        80px
+6rem	        96px
+6.25rem         100px
+7rem	        112px
+8rem	        128px
+9rem	        144px
+10rem	        160px
+31.25rem        500px
+62.5rem         1000px
+*/
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body and Background Styling */
+body {
+    background-color: var(--background-color);
+    color: var(--maintext);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 60px;                       /* Matches or slightly exceeds the footer's height to give room for the footer */
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    top: -40px; /* Hidden above the viewport */
+    left: 75%; /* Center horizontally */
+    transform: translateX(-50%); /* Ensure proper centering */
+    background-color: var(--green); /* Background color for visibility */
+    font-family: var(--font-family);
+    color: var(--maintext); /* Text color */
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    z-index: 100; /* Ensure it appears above other elements */
+    transition: top 0.3s ease, opacity 0.3s ease; /* Smooth transition when focused */
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Prevent interaction */
+}
+
+/* Visible only when focused */
+.skip-link:focus {
+    top: 10px; /* Bring it into view when focused */
+    opacity: 1; /* Make it visible */
+    pointer-events: auto; /* Enable interaction */
+    outline: none; /* Remove the default browser focus outline */
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--background-color);
+    position: fixed;                            /* Makes the header fixed at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+header .logo {
+    font-family: "ethnocentric", sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Logo Styling */
+.logo a {
+    text-decoration: none; /* Remove underline */
+    color: var(--maintext); /* Keep the logo text color */
+    font-size: 28px; /* Adjust size if needed */
+    font-family: "ethnocentric", sans-serif; /* Apply existing logo font */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Add hover effect */
+}
+
+.logo a:hover {
+    color: var(--green); /* Optional hover color */
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+/* Nav Links */
+nav a {
+    font-family: "ethnocentric", sans-serif;
+    text-decoration: none;
+    color: var(--maintext);
+    font-size: 16px;
+    position: relative;
+}
+
+/* Dropdown Container */
+.dropdown {
+    position: relative;
+}
+
+/* Dropdown Content (Initially Hidden) */
+.dropdown-content {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 100%;                      /* Directly below the "Apps" link */
+    left: 0;
+    transform: translateY(10px);    /* Start slightly below for animation */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+    flex-direction: column;
+    gap: 20px;                      /* Space between list items, adjust in tandem w/.dropdown-content a padding */
+    padding: 10px 0;                /* Padding to create space around items */
+    pointer-events: none;           /* Disable interaction when hidden */
+}
+
+/* Show Dropdown on Hover */
+/* Ensure Dropdown Stays Visible on Hover */
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);       /* Slide up into view */
+    pointer-events: auto;           /* Enable interaction */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Dropdown Links */
+.dropdown-content a {
+    color: var(--maintext);
+    text-decoration: none;
+    font-size: 16px;
+    padding-top: 15px;              /* Padding inside each item */
+    padding-bottom: 15px;
+}
+
+/* hover effect for better interaction */
+.dropdown-content a:hover {
+    color: var(--green);
+}
+
+/* App Sections */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 12.5rem;                   /* Spacing between app sections */
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px;
+    padding-bottom: 100px;          /* Lifts the main content out of the footer so the footer doesn't hide it */
+}
+
+            /* Contact Section */
+            .contact-section {
+                max-width: 1000px;                      /* Limit the form's width */
+                margin: 50px auto;                      /* Center horizontally and add vertical spacing */
+                padding: 60px;
+                background-color: var(--background-color);
+                border-radius: var(--border-radius);
+                /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);  Optional shadow for a card effect */
+                color: var(--maintext);
+            }
+
+            /* Header and Paragraph */
+            .contact-section h1 {
+                font-size: var(--font-size-large);      /* Use root variable for consistency */
+                margin-bottom: var(--padding-medium);   /* Add space below the header */
+                text-align: center;
+            }
+
+            .contact-section p {
+                font-size: var(--font-size-medium);
+                color: var(--text-muted);               /* Subtle color for paragraph text */
+                margin-bottom: var(--padding-large);    /* Add space below the paragraph */
+                text-align: center;
+            }
+
+            /* Contact Form */
+            form#contact-form {
+                display: flex;
+                flex-direction: column;                 /* Stack form fields vertically */
+                gap: 60px;                              /* Add spacing between the form fields */
+            }
+
+            /* Form Group */
+            .form-group {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .form-group label {
+                font-size: 1rem;
+                margin-bottom: 5px;
+                color: var(--maintext);
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 1rem;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: var(--border-radius);
+                background-color: rgba(255, 255, 255, 0.9);     /* Light background for inputs */
+                color: black;
+                width: 100%;                                      /* Ensure inputs span full width */
+                box-sizing: border-box;                           /* Prevent overflow */
+            }
+
+            /* Focus Effects */
+            .form-group input:focus,
+            .form-group textarea:focus {
+                border-color: var(--green);
+                outline: none;
+                box-shadow: 0 0 5px var(--green);
+            }
+
+            /* Submit Button */
+            .submit-btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+                font-weight: bold;
+                color: #fff;
+                background-color: var(--green);
+                border: none;
+                border-radius: var(--border-radius);
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+
+            .submit-btn:hover {
+                background-color: var(--green-h);
+                transform: scale(1.05);
+            }
+
+/* Adjust scroll position for sections */
+section {
+    scroll-margin-top: 80px;        /* Matches the height of the fixed header */
+}
+
+/* About Section */
+
+
+
+/* Footer */
+footer {
+    display: flex;              /* Use Flexbox layout */
+    align-items: center;        /* Vertically align items */
+    justify-content: space-between; /* Distribute space between child elements */
+    padding: 20px 40px;         /* Adjust padding */
+    background-color: var(--background-color); /* Background color */
+    position: fixed;            /* Stick to the bottom */
+    bottom: 0;                  /* Align at the bottom */
+    left: 0;                    /* Align to the left edge */
+    width: 100%;                /* Full width */
+    z-index: 10;                /* Keep above other elements */
+}
+
+/* R.E.D. Logo */
+.red-logo {
+    flex: 0 0 auto; /* Prevent stretching */
+}
+
+.red-logo a {
+    text-decoration: none; /* Remove underline */
+    display: inline-block;
+}
+
+.red-logo-image {
+    width: 100px;                       /* Adjust size */
+    height: auto;                       /* Maintain aspect ratio */
+    transition: transform 0.3s ease;    /* Smooth hover effect */
+    cursor: default;
+}
+
+.red-logo-image:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Footer Copyright */
+footer p {
+    flex: 1;                /* Take up remaining space to center-align */
+    text-align: center;     /* Center text */
+    color: var(--maintext); /* Text color */
+    margin: 0;              /* Remove default margin */
+}
+
+/* Social Media Links */
+.social-links {
+    display: flex;      /* Inline layout for icons */
+    gap: 15px;          /* Space between icons */
+    flex: 0 0 auto;     /* Prevent stretching */
+}
+
+.social-links a {
+    text-decoration: none;
+    color: var(--maintext);                             /* Match footer text color */
+    font-size: 24px;                                    /* Icon size */
+    transition: color 0.3s ease, transform 0.3s ease;   /* Hover effect */
+    cursor: default;
+}
+
+.social-links a:hover {
+    color: var(--green-h); /* Green hover color */
+    transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+
+@media (max-width: 768px) {
+    /* Header adjustment for smaller screens */
+    header {
+        flex-direction: column; /* Stack logo and navigation vertically */
+        align-items: flex-start; /* Align items to the left */
+        padding: 10px 20px; /* Adjust padding for smaller screens */
+        height: auto; /* Allow dynamic height for content */
+    }
+
+    /* Logo positioning */
+    header .logo {
+        margin-bottom: 20px; /* Add spacing below the logo */
+        text-align: left; /* Align the logo to the left */
+    }
+
+    /* Navigation adjustment */
+    nav {
+        display: flex;
+        flex-direction: column; /* Stack navigation links vertically */
+        gap: 10px; /* Add spacing between links */
+        width: 100%; /* Ensure nav takes up full width */
+    }
+
+    nav a {
+        text-align: left; /* Align navigation links to the left */
+    }
+
+    /* Move "Apps" to the bottom */
+    .dropdown {
+        order: 99; /* Use a high order value to place it last */
+    }
+
+    /* Dropdown adjustment */
+    .dropdown-content {
+        position: relative; /* Ensure dropdown flows with layout */
+        visibility: hidden; /* Initially hidden */
+        opacity: 0; /* Transparent */
+        transform: scaleY(0); /* Collapse vertically */
+        transform-origin: top; /* Collapse/expand from the top */
+        transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for dropdown */
+    }
+
+    .dropdown:hover .dropdown-content {
+        visibility: visible; /* Make visible on hover */
+        opacity: 1; /* Fully opaque */
+        transform: scaleY(1); /* Expand vertically */
+    }
+
+    .dropdown-content a {
+        display: block; /* Make links block elements */
+        padding: 10px 20px; /* Add padding for better click area */
+        color: var(--maintext); /* Keep text color */
+    }
+
+    .dropdown-content a:hover {
+        color: var(--green); /* Change color on hover */
+    }
+
+    /* Ensure main content starts after dropdown */
+    main {
+        margin-top: 300px; /* Add margin to separate main content */
+        transition: margin-top 0.3s ease; /* Smoothly adjust on dropdown interaction */
+        padding-top: calc(80px + 20px); /* Increase padding-top for smaller screens */
+    }
+
+    .dropdown:hover + main {
+        margin-top: calc(100% + 20px); /* Push main content down to accommodate dropdown */
+    }
+
+    .red-logo-image {
+        width: 60px; /* Smaller size for the R.E.D. logo */
+    }
+
+     /* Social Links Container */
+    .social-links {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Always-visible Facebook link */
+    .social-links .facebook {
+        display: inline-block;
+        font-size: 24px;
+        color: var(--maintext);
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* Dropdown content initially hidden */
+    .social-links .dropdown-content {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        bottom: 100%; /* Position above the Facebook link */
+        left: 50%; /* Center align */
+        transform: translate(-50%, 10px);
+        background-color: var(--background-color);
+        border-radius: var(--border-radius);
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        flex-direction: column;
+        gap: 10px;
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+        pointer-events: none;
+    }
+
+    /* Social links inside dropdown */
+    .social-links .dropdown-content a {
+        display: block;
+        color: var(--maintext);
+        font-size: 18px;
+        text-decoration: none;
+    }
+
+    .social-links .dropdown-content a:hover {
+        color: var(--green);
+    }
+
+    /* Show dropdown on hover */
+    .social-links:hover .dropdown-content {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(-50%, -10px); /* Move upward into view */
+        pointer-events: auto;
+    }
+ 
+    /* Footer Copyright Font Size */
+    footer p {
+        font-size: 0.8rem; /* Smaller font size for copyright */
+    }
+}
